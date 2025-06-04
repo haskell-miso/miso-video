@@ -5,22 +5,10 @@ module Main where
 import Data.Map as Map ((!?), adjust, keys, notMember)
 import Miso
 import Miso.Lens as Lens
-import Miso.Media (Media(..))
+import Miso.Media (Media(..), videoHeight, videoWidth)
 import Miso.String (MisoString, ms)
 
 import Model
-
-----------------------------------------------------------------------
--- FFI (should be in Miso?)
-----------------------------------------------------------------------
-
-import Language.Javascript.JSaddle (JSM, fromJSValUnchecked, (!))
-
-videoHeight :: Media -> JSM Int
-videoHeight (Media m) = fromJSValUnchecked =<< m ! ("videoHeight" :: MisoString)
-
-videoWidth :: Media -> JSM Int
-videoWidth (Media m) = fromJSValUnchecked =<< m ! ("videoWidth" :: MisoString)
 
 ----------------------------------------------------------------------
 -- parameters
