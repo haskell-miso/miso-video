@@ -1,3 +1,4 @@
+{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE OverloadedStrings #-}
 
 module Main where
@@ -112,14 +113,15 @@ handleUpdate (ActionSetSize cId w h) =
 -- main
 ----------------------------------------------------------------------
 
+app :: Component "app" Model Action
+app = (defaultComponent model handleUpdate handleView)
+  { events = defaultEvents <> mediaEvents
+  , logLevel = DebugAll
+  }
+  where model = mkModel thePlaylist
+
 main :: IO ()
-main = run $ do
-  let model = mkModel thePlaylist
-      app = defaultComponent model handleUpdate handleView
-  startComponent app
-    { events = defaultEvents <> mediaEvents
-    , logLevel = DebugAll
-    }
+main = run $ startComponent app
 
 #ifdef WASM
 foreign export javascript "hs_start" main :: IO ()
