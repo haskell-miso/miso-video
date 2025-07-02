@@ -113,15 +113,18 @@ handleUpdate (ActionSetSize cId w h) =
 -- main
 ----------------------------------------------------------------------
 
-app :: Component "app" Model Action
-app = (defaultComponent model handleUpdate handleView)
-  { events = defaultEvents <> mediaEvents
-  , logLevel = DebugAll
-  }
-  where model = mkModel thePlaylist
-
 main :: IO ()
-main = run $ startComponent app
+main = run $ do
+
+  let model = mkModel thePlaylist
+
+      app :: Component "app" Model Action
+      app = (defaultComponent model handleUpdate handleView)
+        { events = defaultEvents <> mediaEvents
+        , logLevel = DebugAll
+        }
+
+  startComponent app
 
 #ifdef WASM
 foreign export javascript "hs_start" main :: IO ()
