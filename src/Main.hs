@@ -41,9 +41,9 @@ data Action
 handleView :: Model -> View Action
 handleView model = div_ [] 
   [ p_ []
-      [ a_ [ href_ "https://github.com/juliendehos/miso-video-test" ] [ text "source" ]
+      [ a_ [ href_ "https://github.com/haskell-miso/miso-video-test" ] [ text "source" ]
       , text " - "
-      , a_ [ href_ "https://juliendehos.github.io/miso-video-test/" ] [ text "demo" ]
+      , a_ [ href_ "https://haskell-miso.github.io/miso-video-test/" ] [ text "demo" ]
       ]
   , p_ [] 
       [ select_ [ onChange ActionAskVideo ] myOptions
