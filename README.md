@@ -1,11 +1,11 @@
-# miso-video-test
+# miso-video
 
 Sample web app with some video clips, in Haskell, using [Miso](https://haskell-miso.org/).
 
 
 ## Try online
 
-- [https://haskell-miso.github.io/miso-video-test/](https://haskell-miso.github.io/miso-video-test/)
+- [https://haskell-miso.github.io/miso-video/](https://haskell-miso.github.io/miso-video/)
 
 
 ## Build and run

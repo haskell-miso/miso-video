@@ -1,5 +1,5 @@
 cabal-version:          3.0
-name:                   miso-video-test
+name:                   miso-video
 version:                0.2
 
 executable app
