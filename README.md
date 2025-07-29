@@ -1,4 +1,4 @@
-# miso-video
+# 🍜 📽️ miso-video
 
 Sample web app with some video clips, in Haskell, using [Miso](https://haskell-miso.org/).
 
