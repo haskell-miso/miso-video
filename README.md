@@ -5,7 +5,7 @@ Sample web app with some video clips, in Haskell, using [Miso](https://haskell-m
 
 ## Try online
 
-- [https://haskell-miso.github.io/miso-video/](https://haskell-miso.github.io/miso-video/)
+- [https://video.haskell-miso.org](https://video.haskell-miso.org)
 
 
 ## Build and run
