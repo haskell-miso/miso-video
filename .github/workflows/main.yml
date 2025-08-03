@@ -1,9 +1,9 @@
-
 name: Build and deploy
 
 on:
   push:
     branches: main
+  pull_request:
 
 permissions:
   contents: read
@@ -22,7 +22,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build using Nix
-        run: nix develop --command bash -c "make"
+        run: nix develop .#wasm --command bash -c "make"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -30,6 +30,7 @@ jobs:
           path: ./public
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
 
     environment:

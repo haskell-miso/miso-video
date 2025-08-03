@@ -17,4 +17,3 @@ nix develop
 make
 make serve
 ```
-

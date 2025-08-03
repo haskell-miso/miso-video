@@ -2,13 +2,29 @@ cabal-version:          3.0
 name:                   miso-video
 version:                0.2
 
+common warnings
+  ghc-options:
+    -funbox-strict-fields -O2 -ferror-spans -fspecialise-aggressively -Wall
+
+common wasm
+  if arch(wasm32)
+    ghc-options:
+      -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start"
+    cpp-options:
+      -DWASM
+
 executable app
-  hs-source-dirs:       src
-  main-is:              Main.hs
-  other-modules:        Model
-  build-depends:        base, containers, jsaddle, miso, time
-  default-language:     GHC2021
-  ghc-options:          -Wall -no-hs-main -optl-mexec-model=reactor "-optl-Wl,--export=hs_start" -ddump-splices
-  cpp-options:          -DWASM
-  default-extensions:   CPP TemplateHaskell
- 
+  import:
+    warnings, wasm
+  hs-source-dirs:
+    src
+  main-is:
+    Main.hs
+  other-modules:
+    Model
+  build-depends:
+    base, containers, jsaddle, miso, time
+  default-language:
+    GHC2021
+  default-extensions:
+    CPP TemplateHaskell
