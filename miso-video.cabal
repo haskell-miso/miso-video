@@ -23,7 +23,7 @@ executable app
   other-modules:
     Model
   build-depends:
-    base, containers, jsaddle, miso, time
+    base, containers, miso, time
   default-language:
     GHC2021
   default-extensions:

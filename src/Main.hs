@@ -7,9 +7,10 @@ module Main where
 import Data.Map as Map ((!?), adjust, keys, notMember)
 ----------------------------------------------------------------------
 import Miso
+import Miso.Html
+import Miso.Html.Property
 import Miso.Lens as Lens
 import Miso.Media (Media(..), videoHeight, videoWidth)
-import Miso.String (MisoString, ms)
 ----------------------------------------------------------------------
 import Model
 ----------------------------------------------------------------------

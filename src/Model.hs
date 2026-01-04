@@ -6,18 +6,11 @@
 module Model where
 ----------------------------------------------------------------------
 import Data.Map as Map (fromList, Map)
-import Language.Javascript.JSaddle (JSVal(..))
 ----------------------------------------------------------------------
 import Miso.Lens (Lens, lens)
 import Miso.Lens.TH (makeLenses)
 import Miso.Media (Media(..))
 import Miso.String (MisoString)
--------------------------------------------------------------------------------
-instance Eq JSVal where
-  JSVal v1 == JSVal v2 = v1 == v2
-----------------------------------------------------------------------
-instance Eq Media where
-  Media m1 == Media m2 = m1 == m2
 -------------------------------------------------------------------------------
 newtype ClipId = ClipId { _clipId :: MisoString }
   deriving (Eq, Ord)
