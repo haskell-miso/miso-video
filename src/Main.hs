@@ -93,9 +93,8 @@ handleUpdate (ActionSetSize cId w h) =
 main :: IO ()
 main = run $ do
   let model = mkModel thePlaylist
-  startComponent (component model handleUpdate handleView)
-    { events = defaultEvents <> mediaEvents
-    , logLevel = DebugAll
+  startApp (defaultEvents <> mediaEvents) (component model handleUpdate handleView)
+    { logLevel = DebugAll
     }
 ----------------------------------------------------------------------
 #ifdef WASM
