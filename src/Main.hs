@@ -74,7 +74,7 @@ handleView model = div_ []
       then [ width_ (ms theSmallWidth), height_ (ms $ theSmallWidth*h `div` w) ]
       else [ width_ (ms w), height_ (ms h) ]
 ----------------------------------------------------------------------
-handleUpdate :: Action -> Transition Model Action
+handleUpdate :: Action -> Effect parent Model Action
 handleUpdate (ActionAskVideo str) = do
   playlist <- use modelPlaylist
   modelPlaying .= if str == ""  || notMember (mkClipId str) playlist
