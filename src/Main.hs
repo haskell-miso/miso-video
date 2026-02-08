@@ -4,7 +4,7 @@
 ----------------------------------------------------------------------
 module Main where
 ----------------------------------------------------------------------
-import Data.Map as Map ((!?), adjust, keys, notMember)
+import Data.Map.Strict as Map ((!?), adjust, keys, notMember)
 ----------------------------------------------------------------------
 import Miso
 import Miso.Html
@@ -91,7 +91,7 @@ handleUpdate (ActionSetSize cId w h) =
                  & clipHeight .~ h
 ----------------------------------------------------------------------
 main :: IO ()
-main = run $ do
+main = do
   let model = mkModel thePlaylist
   startApp (defaultEvents <> mediaEvents) (component model handleUpdate handleView)
     { logLevel = DebugAll
