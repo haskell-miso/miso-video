@@ -30,7 +30,7 @@ data Action
   | ActionSetSize ClipId Int Int
 ----------------------------------------------------------------------
 handleView :: Model -> View Model Action
-handleView model = div_ [] 
+handleView model = vfrag
   [ p_ []
     [ a_ [ href_ "https://github.com/haskell-miso/miso-video" ] [ text "source" ]
     , text " - "
